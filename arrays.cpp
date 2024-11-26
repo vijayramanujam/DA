@@ -12,6 +12,7 @@ Operations:
 struct Array;
 Array* initialize();
 void append(Array *arr, int element);
+void display(Array *arr);
 
 
 
@@ -30,7 +31,11 @@ int main() {
     Array* arr =  initialize();
 
     // operations
+    display(arr);
     append(arr, 10);
+    append(arr, 20);
+    append(arr, 30);
+    display(arr);
 
     // freeing the memory on heap
     delete[] arr->p;
@@ -52,10 +57,16 @@ Array* initialize() {
 
 }
 
+// Display added elements
+void display(Array *arr) {
+
+    for (int i = 0; i < arr->length; i++) std::cout << *(arr->p + i) << " ";
+}
+
 
 
 void append(Array *arr, int element) {
 
     *(arr->p + arr->length) = element; // Add element to last open position in array
-    arr->length = arr->length++; // update the lenght as array has been updated with the new element;
+    arr->length++; // update the lenght as array has been updated with the new element;
 }
