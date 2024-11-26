@@ -56,6 +56,6 @@ Array* initialize() {
 
 void append(Array *arr, int element) {
 
-    *(arr->p + arr->length) = element;
-    arr->length = arr->length++;
+    *(arr->p + arr->length) = element; // Add element to last open position in array
+    arr->length = arr->length++; // update the lenght as array has been updated with the new element;
 }
