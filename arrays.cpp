@@ -7,8 +7,10 @@ Operations:
 
 */
 
+#include <iostream>
 // Forward declarations
 struct Array;
+Array* initialize();
 
 
 
@@ -25,8 +27,12 @@ struct Array {
 int main() {
 
 
-    Array* arr = initialize();
+    Array* arr =  initialize();
 
+    // freeing the memory on heap
+    delete[] arr->p;
+    arr->p = nullptr;
+    delete[] arr;
     return 0;
 }
 
@@ -39,7 +45,7 @@ Array* initialize() {
     arr->length = 0;
     arr->p = new int[arr->capacity];
 
-    return *arr; // return this pointer to structre to main()
+    return arr; // return this pointer to structre to main()
 
 }
 
