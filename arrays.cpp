@@ -11,6 +11,7 @@ Operations:
 // Forward declarations
 struct Array;
 Array* initialize();
+void append(Array *arr, int element);
 
 
 
@@ -26,8 +27,10 @@ struct Array {
 
 int main() {
 
-
     Array* arr =  initialize();
+
+    // operations
+    append(arr, 10);
 
     // freeing the memory on heap
     delete[] arr->p;
@@ -49,3 +52,10 @@ Array* initialize() {
 
 }
 
+
+
+void append(Array *arr, int element) {
+
+    *(arr->p + arr->length) = element;
+    arr->length = arr->length++;
+}
