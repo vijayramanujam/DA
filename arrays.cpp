@@ -14,6 +14,7 @@ Array* initialize();
 void push(Array *arr, int element);
 void display(Array *arr);
 void pop(Array *arr);
+void update(Array *arr, int index, int element);
 
 
 
@@ -77,4 +78,11 @@ void pop(Array *arr) {
     arr->length--;
 }
 
+void update(Array *arr, int index, int element) {
 
+    if (index < 0 || index >= arr->length) std::cout << "Yet to handle this situation" << std::endl;
+    else {
+
+        *(arr->p + index) = element;
+    }
+}
