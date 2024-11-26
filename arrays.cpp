@@ -11,7 +11,7 @@ Operations:
 // Forward declarations
 struct Array;
 Array* initialize();
-void append(Array *arr, int element);
+void push(Array *arr, int element);
 void display(Array *arr);
 
 
@@ -31,11 +31,7 @@ int main() {
     Array* arr =  initialize();
 
     // operations
-    display(arr);
-    append(arr, 10);
-    append(arr, 20);
-    append(arr, 30);
-    display(arr);
+
 
     // freeing the memory on heap
     delete[] arr->p;
@@ -65,8 +61,10 @@ void display(Array *arr) {
 
 
 
-void append(Array *arr, int element) {
+void push(Array *arr, int element) {
 
     *(arr->p + arr->length) = element; // Add element to last open position in array
     arr->length++; // update the lenght as array has been updated with the new element;
 }
+
+
